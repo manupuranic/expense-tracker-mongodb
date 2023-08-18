@@ -13,11 +13,6 @@ const expenseRouter = require("./routes/expenses");
 const purchaseRouter = require("./routes/purchase");
 const premiumRouter = require("./routes/premium");
 const passwordRouter = require("./routes/password");
-// const User = require("./models/user");
-// const Expense = require("./models/expense");
-// const Order = require("./models/order");
-// const ForgotPasswordRequests = require("./models/forgotPasswordRequests");
-// const FileDownloads = require("./models/fileDownloads");
 
 const app = express();
 
@@ -32,19 +27,18 @@ app.use("/password", passwordRouter);
 
 app.use(express.static(path.join(__dirname, `public`)));
 
-// User.hasMany(Expense);
-// Expense.belongsTo(User);
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.DB_URL);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
 
-// User.hasMany(Order);
-// Order.belongsTo(User);
-
-// User.hasMany(ForgotPasswordRequests);
-// ForgotPasswordRequests.belongsTo(User);
-
-// User.hasMany(FileDownloads);
-// FileDownloads.belongsTo(User);
-
-mongoose.connect(process.env.DB_URL).then(() => {
-  console.log("connected");
-  app.listen(process.env.PORT);
+connectDB().then(() => {
+  app.listen(process.env.PORT, () => {
+    console.log("listening for requests");
+  });
 });
