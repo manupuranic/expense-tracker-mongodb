@@ -14,6 +14,8 @@ const purchaseRouter = require("./routes/purchase");
 const premiumRouter = require("./routes/premium");
 const passwordRouter = require("./routes/password");
 
+console.log(process.env.DB_URL);
+
 const app = express();
 
 app.use(cors());
