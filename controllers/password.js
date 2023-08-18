@@ -1,9 +1,7 @@
 const SibApiV3Sdk = require("sib-api-v3-sdk");
-const { v4: uuidv4 } = require("uuid");
 const ForgotPasswordRequests = require("../models/forgotPasswordRequests");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
-const { Schema } = require("mongoose");
 
 exports.postForgotPassword = async (req, res, next) => {
   const email = req.body.email;

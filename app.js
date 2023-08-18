@@ -8,7 +8,6 @@ const mongoose = require("mongoose");
 
 require("dotenv").config();
 
-const sequelize = require("./utils/database");
 const userRouter = require("./routes/user");
 const expenseRouter = require("./routes/expenses");
 const purchaseRouter = require("./routes/purchase");
