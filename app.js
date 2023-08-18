@@ -1,4 +1,3 @@
-const fs = require("fs");
 const path = require("path");
 
 const express = require("express");
@@ -13,8 +12,6 @@ const expenseRouter = require("./routes/expenses");
 const purchaseRouter = require("./routes/purchase");
 const premiumRouter = require("./routes/premium");
 const passwordRouter = require("./routes/password");
-
-console.log(process.env.DB_URL);
 
 const app = express();
 
@@ -40,7 +37,7 @@ const connectDB = async () => {
 };
 
 connectDB().then(() => {
-  app.listen(process.env.PORT, () => {
+  app.listen(3000, () => {
     console.log("listening for requests");
   });
 });
