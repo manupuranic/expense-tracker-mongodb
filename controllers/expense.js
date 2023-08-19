@@ -31,8 +31,10 @@ exports.getExpenses = async (req, res, next) => {
   page = +page;
   const ITEMS_PER_PAGE = +req.query.perPage;
   try {
-    const data = await Expense.countDocuments({ "user.userId": req.user });
-    const totalItems = data;
+    // get the count of documents of specified user
+    const totalItems = await Expense.countDocuments({
+      "user.userId": req.user,
+    });
     const lastPage = Math.ceil(totalItems / ITEMS_PER_PAGE);
     const expenses = await Expense.find({ "user.userId": req.user })
       .select("_id amount desc category")
@@ -61,13 +63,12 @@ exports.deleteExpense = async (req, res, next) => {
     const expense = await Expense.findById(id);
     req.user.totalExpense =
       parseInt(req.user.totalExpense) - parseInt(expense.amount);
-    await req.user.save();
-    await expense.deleteOne();
+    // deleteOne: prototype method to delete this of the expense
+    Promise.all([await req.user.save(), await expense.deleteOne()]);
     res.json({
       message: "Expense deleted",
     });
   } catch (err) {
-    t.rollback();
     res.status(404).json({
       message: "Expense not found, try again",
     });
