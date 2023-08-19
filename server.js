@@ -19,7 +19,7 @@ const app = express();
 
 // cors and bodyParser middlewares
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ extended: true }));
 
 // Routes
 app.use("/user", userRouter);
