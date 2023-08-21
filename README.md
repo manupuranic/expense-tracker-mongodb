@@ -1,5 +1,5 @@
 # expense-tracker
-## web app to track expenses
+### web app to track expenses
 1. Designed backend API using ***NodeJS, ExpressJS,  MongoDB***.
 2. Implement user authentication using ***JWT*** and encrypt passwords using ***bcrypt***.
 3. User can create and delete expenses based on categories.
