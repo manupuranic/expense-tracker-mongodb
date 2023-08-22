@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3000";
+const baseUrl = "https://expense.puranic.in";
 
 const msg = document.getElementById("message");
 const form = document.getElementById("addExpense");

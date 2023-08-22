@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3000";
+const baseUrl = "https://expense.puranic.in";
 const form = document.getElementById("forgotPasswordForm");
 const msg = document.getElementById("message");
 
