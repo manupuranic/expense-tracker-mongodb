@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, `public`)));
 // establishing connection with mongodb with mongoose
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.DB_URL);
+    await mongoose.connect(process.env.DB_URL);
   } catch (error) {
     console.log(error);
   }
@@ -42,7 +42,7 @@ const connectDB = async () => {
 
 // establishing connection and starting server
 connectDB().then(() => {
-  app.listen(3000, () => {
+  app.listen(3001, () => {
     console.log(`server listening on port 3000:`);
   });
 });
