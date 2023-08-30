@@ -9,4 +9,4 @@
 7. Download expense report using ***Amazon S3***.
 8. Deployed in ***AWS EC2*** instance.
 
-visit the [website](https://expense-tracker.cyclic.cloud/) 
+**website:** [expense.puranic.in](https://expense.puranic.in) 
