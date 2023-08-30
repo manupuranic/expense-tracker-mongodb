@@ -30,7 +30,7 @@ exports.postForgotPassword = async (req, res, next) => {
         },
       });
       console.log(result);
-      const resetUrl = `http://localhost:3000/password/resetpassword/${result._id}`;
+      const resetUrl = `https://expense.puranic.in/password/resetpassword/${result._id}`;
       const response = await transEmailApi.sendTransacEmail({
         sender,
         to: receivers,
